@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Member a:
+  = @friendship.friend_a_id
+%p
+  %b Member b:
+  = @friendship.friend_b_id
+
+= link_to 'Edit', edit_friendship_path(@friendship)
+\|
+= link_to 'Back', friendships_path

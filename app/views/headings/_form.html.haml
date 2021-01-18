@@ -1,0 +1,19 @@
+= form_for @heading do |f|
+  - if @heading.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@heading.errors.count, "error")} prohibited this heading from being saved:"
+      %ul
+        - @heading.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :member_id
+    = f.number_field :member_id
+  .field
+    = f.label :kind
+    = f.text_field :kind
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

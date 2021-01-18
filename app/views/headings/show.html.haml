@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Member:
+  = @heading.member_id
+%p
+  %b Kind:
+  = @heading.kind
+%p
+  %b Name:
+  = @heading.name
+
+= link_to 'Edit', edit_heading_path(@heading)
+\|
+= link_to 'Back', headings_path

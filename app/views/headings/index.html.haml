@@ -1,0 +1,25 @@
+%h1 Listing headings
+
+%table
+  %thead
+    %tr
+      %th Member
+      %th Kind
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @headings.each do |heading|
+      %tr
+        %td= heading.member_id
+        %td= heading.kind
+        %td= heading.name
+        %td= link_to 'Show', heading
+        %td= link_to 'Edit', edit_heading_path(heading)
+        %td= link_to 'Destroy', heading, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Heading', new_heading_path

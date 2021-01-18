@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @member.name
+%p
+  %b Url:
+  = @member.url
+%p
+  %b Short url:
+  = @member.short_url
+
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path
