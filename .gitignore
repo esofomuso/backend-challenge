@@ -1,3 +1,5 @@
 .keep
 development.log
 server.pid
+tmp
+test.log
