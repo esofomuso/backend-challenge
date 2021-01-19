@@ -9,7 +9,7 @@ RSpec.describe "headings/new", type: :view do
     ))
   end
 
-  it "renders new heading form" do
+  xit "renders new heading form" do
     render
 
     assert_select "form[action=?][method=?]", headings_path, "post" do

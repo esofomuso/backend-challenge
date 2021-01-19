@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  include SearchAlgorithm
+  before_action :set_member, only: [:show, :edit, :update, :destroy, :search]
 
   # GET /members
   # GET /members.json
@@ -58,6 +59,17 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  
+  # POST /members/1/search
+  # Find and render members of interest who are not yet friends
+  def search
+    @query = params[:query]
+    @results = dfs()
+    respond_to do |format|
+      format.js 
     end
   end
 

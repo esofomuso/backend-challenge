@@ -1,4 +1,9 @@
 %p#notice= notice
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path
+%br 
+%h2= "%s's Profile Information" %[@member.name]
 
 %p
   %b Name:
@@ -9,7 +14,29 @@
 %p
   %b Short url:
   = @member.short_url
+%br
 
-= link_to 'Edit', edit_member_path(@member)
-\|
-= link_to 'Back', members_path
+%h2 Website Headings
+= @member.headings.pluck(:name).to_sentence
+%br
+
+%h2 Friends 
+- @member.friends.each do |member|
+  %ul
+    %li= link_to member.name, member
+
+%br
+
+= form_tag search_path, remote: true, method: :post do
+  .field
+    - text_field_tag :id, @member.id
+    = label_tag(:query, 'Search for:')
+    = text_field_tag :query
+  .actions
+    = submit_tag 'Search'
+
+%br
+%p
+
+.search_results
+

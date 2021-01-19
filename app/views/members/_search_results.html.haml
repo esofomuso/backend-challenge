@@ -1,0 +1,16 @@
+%h2= "Search Results for: '%s'" %[@query]
+%p 
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Introduction Path
+
+  %tbody
+    - @results.each_pair do |member, path|
+      %tr
+        %td= link_to member.name, member
+        %td= path
+
+%br
